@@ -13,7 +13,7 @@ class LeftMenu {
      */
     init() {
         this.contentRight();
-
+        this.divContainer.appendChild(this.divLeft);
         this.divContainer.appendChild(this.divRight);
         this.anime();
     }
@@ -33,29 +33,31 @@ class LeftMenu {
     anime() {
         this.divContainer.addEventListener("mouseover", () => {
             this.divContainer.style.opacity = "0.9";
-            this.divContainer.animate([
-                {
-                    width: "15%"
-                }
-            ], {
-                fill: "forwards",
-                duration: 300
-            });
+            this.divLeft.style.width = "0";
+
+            this.animeConfig(this.divContainer, "15%");
+            this.animeConfig(this.divRight, "15%");
+            this.animeConfig(this.divLeft, "85%");
         });
         this.divContainer.addEventListener("mouseout", () => {
-
-            this.divContainer.animate([
-                {
-                    width: "2%"
-                }
-            ], {
-                fill: "forwards",
-                duration: 300
-            });
+            this.animeConfig(this.divContainer, "2%");
+            this.animeConfig(this.divRight, "100%");
+            this.animeConfig(this.divLeft, "0");
 
             setTimeout(() => {
                 this.divContainer.style.opacity = "0.45";
             }, 300)
+        });
+    }
+
+    animeConfig(element, width) {
+        element.animate([
+            {
+                width: width
+            }
+        ], {
+            fill: "forwards",
+            duration: 300
         });
     }
 }
