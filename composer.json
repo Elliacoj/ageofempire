@@ -12,5 +12,8 @@
             "email": "73291249+Elliacoj@users.noreply.github.com"
         }
     ],
-    "require": {}
+    "require": {
+      "ext-pdo": "*",
+      "ext-json": "*"
+    }
 }

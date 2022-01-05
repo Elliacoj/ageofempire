@@ -27,6 +27,7 @@
 
   & > div:nth-child(1) span {
     font-size: 3rem;
+    cursor: default;
     background: -webkit-linear-gradient(#ffea01, #e1b908, #ffffff);
     text-decoration-line: underline;
     text-decoration-color: #ffea01;
@@ -85,8 +86,54 @@
       border-top: 1vmin solid white;
       border-right: 1vmin solid white;
       transform: rotate(45deg);
-      position: relative;
-      z-index: -10;
+    }
+  }
+
+  & > div:first-child {
+    overflow: hidden;
+
+    & > h2 {
+      font-size: 2rem;
+      text-decoration-line: underline;
+      background: -webkit-linear-gradient(#ffea01, #e1b908, #ffffff);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      text-decoration-color: #ffea01;
+      margin: 1rem 0 0 2rem;
+      cursor: default;
+    }
+
+    & > div {
+      overflow: hidden;
+      display: flex;
+      flex-wrap: wrap;
+      width: 100%;
+      padding: 1rem 0 1rem 2rem;
+
+      & > div {
+        margin: 0.5rem 0;
+
+        & > h3 {
+          font-family: "Agency FB", sans-serif;
+          width: 200px;
+          font-size: 1.8rem;
+          background: -webkit-linear-gradient(#0167ff, #08cfe1, #ffffff);
+          -webkit-background-clip: text;
+          -webkit-text-fill-color: transparent;
+          cursor: pointer;
+          letter-spacing: 3px;
+
+          & > span {
+            display: inline-block;
+            margin-left: 0.5rem;
+            width: 7px;
+            height: 7px;
+            border-top: 1px solid #0167ff;
+            border-right: 1px solid #0167ff;
+            transform: rotate(45deg);
+          }
+        }
+      }
     }
   }
 }

@@ -1,3 +1,5 @@
+import {ContentLeftMenu} from "./contentLeftMenu";
+
 class LeftMenu {
     /**
      * Constructor
@@ -6,6 +8,7 @@ class LeftMenu {
         this.divContainer = document.getElementById("leftMenu");
         this.divRight = document.createElement("div");
         this.divLeft = document.createElement("div");
+        this.content = new ContentLeftMenu();
     }
 
     /**
@@ -13,6 +16,7 @@ class LeftMenu {
      */
     init() {
         this.contentRight();
+        this.contentLeft();
         this.divContainer.appendChild(this.divLeft);
         this.divContainer.appendChild(this.divRight);
         this.anime();
@@ -28,6 +32,13 @@ class LeftMenu {
     }
 
     /**
+     * Add content into div left
+     */
+    contentLeft() {
+        this.content.init(this.divLeft);
+    }
+
+    /**
      * anime the width change
      */
     anime() {
@@ -39,18 +50,14 @@ class LeftMenu {
             this.animeConfig(this.divRight, "15%");
             this.animeConfig(this.divLeft, "85%");
         });
-        this.divContainer.addEventListener("mouseout", () => {
-            this.animeConfig(this.divContainer, "2%");
+        this.divContainer.addEventListener("mouseleave", () => {
+            this.animeConfig(this.divContainer, "2%", true);
             this.animeConfig(this.divRight, "100%");
             this.animeConfig(this.divLeft, "0");
-
-            setTimeout(() => {
-                this.divContainer.style.opacity = "0.45";
-            }, 300)
         });
     }
 
-    animeConfig(element, width) {
+    animeConfig(element, width, time = false) {
         element.animate([
             {
                 width: width
@@ -59,6 +66,12 @@ class LeftMenu {
             fill: "forwards",
             duration: 300
         });
+
+        if(time) {
+            setTimeout(() => {
+                this.divContainer.style.opacity = "0.45";
+            }, 300)
+        }
     }
 }
 export {LeftMenu};
