@@ -133,6 +133,21 @@
             transform: rotate(45deg);
           }
         }
+
+        & > div {
+          margin-left: 2rem;
+          font-size: 1.5rem;
+          display: none;
+
+          & > a {
+            display: block;
+            text-decoration-line: none;
+            background: -webkit-linear-gradient(#0167ff, #08cfe1, #ffffff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin: 1rem 0;
+          }
+        }
       }
     }
   }

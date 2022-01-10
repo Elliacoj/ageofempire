@@ -1,5 +1,6 @@
 <?php
 
+use Amaur\App\manager\CategoriesManager;
 use Amaur\App\manager\CivilizationManager;
 
 require "../../vendor/autoload.php";
@@ -19,13 +20,24 @@ switch ($request) {
  */
 function get():array {
     $allData = CivilizationManager::get();
-    $allCivilization = [];
+    $all = [];
 
+    $civilizationArray = [];
     foreach ($allData as $civilization) {
-        $allCivilization[] = [
+        $civilizationArray[] = [
             "id" => $civilization->getId(), "name" => $civilization->getName(),
             "abbreviation" => $civilization->getAbbreviation(), "flag" => $civilization->getFlag()
         ];
     }
-    return $allCivilization;
+
+    $all[] = ["civilization" => $civilizationArray];
+    $allData = CategoriesManager::get();
+    $categoriesArray = [];
+    foreach ($allData as $category) {
+        $categoriesArray[] = [
+            "id" => $category->getId(), "name" => $category->getName()
+        ];
+    }
+    $all[] = ["categories" => $categoriesArray];
+    return $all;
 }

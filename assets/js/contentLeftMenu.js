@@ -19,6 +19,9 @@ class ContentLeftMenu {
         this.searchContent();
     }
 
+    /**
+     * Api for search civilization and
+     */
     searchContent() {
         let xml = new XMLHttpRequest();
         xml.responseType = "json";
@@ -27,14 +30,19 @@ class ContentLeftMenu {
         xml.onload = () => {
             if (xml.response.length !== 0) {
                 let response = xml.response;
-                for(let civilization of response) {
-                    this.createContent(civilization.name);
+                for(let civilization of response[0]['civilization']) {
+                    this.createContentCiv(civilization.name, response[1]['categories']);
                 }
             }
         }
     }
 
-    createContent(name) {
+    /**
+     * Create content for civilization
+     * @param name
+     * @param categories
+     */
+    createContentCiv(name, categories) {
         let div = document.createElement("div");
         let title = document.createElement("h3");
         let span = document.createElement("span");
@@ -43,5 +51,54 @@ class ContentLeftMenu {
         this.divContainer.appendChild(div);
         div.appendChild(title);
         title.appendChild(span);
+
+        for (let category of categories) {
+            this.createContentCat(category.name, div, category.id);
+        }
+
+        this.animationCiv(title, span);
+    }
+
+    /**
+     * Create content for categories of civilization
+     * @param name
+     * @param container
+     * @param id
+     */
+    createContentCat(name, container, id) {
+        let div = document.createElement("div");
+        let a = document.createElement("a");
+
+        a.href = "./index.php?controller=information&id=" + id;
+        a.innerHTML = name;
+
+        container.appendChild(div);
+        div.appendChild(a);
+    }
+
+    /**
+     * animation for button civ
+     * @param button
+     * @param arrow
+     */
+    animationCiv(button, arrow) {
+        button.addEventListener("click", () => {
+            let allDiv = button.parentElement.querySelectorAll("div");
+
+            if(!button.classList.contains("open")) {
+                arrow.style.transform = "rotate(135deg)"
+                for(let div of allDiv) {
+                    div.style.display = "block";
+                    button.classList.add("open");
+                }
+            }
+            else {
+                arrow.style.transform = "rotate(45deg)"
+                for(let div of allDiv) {
+                    div.style.display = "none";
+                    button.classList.remove("open");
+                }
+            }
+        });
     }
 }
