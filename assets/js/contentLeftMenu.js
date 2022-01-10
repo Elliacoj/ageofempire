@@ -31,7 +31,7 @@ class ContentLeftMenu {
             if (xml.response.length !== 0) {
                 let response = xml.response;
                 for(let civilization of response[0]['civilization']) {
-                    this.createContentCiv(civilization.name, response[1]['categories']);
+                    this.createContentCiv(civilization.name, response[1]['categories'], civilization.id);
                 }
             }
         }
@@ -41,8 +41,9 @@ class ContentLeftMenu {
      * Create content for civilization
      * @param name
      * @param categories
+     * @param id
      */
-    createContentCiv(name, categories) {
+    createContentCiv(name, categories, id) {
         let div = document.createElement("div");
         let title = document.createElement("h3");
         let span = document.createElement("span");
@@ -53,7 +54,7 @@ class ContentLeftMenu {
         title.appendChild(span);
 
         for (let category of categories) {
-            this.createContentCat(category.name, div, category.id);
+            this.createContentCat(category.name, div, id);
         }
 
         this.animationCiv(title, span);
@@ -68,8 +69,15 @@ class ContentLeftMenu {
     createContentCat(name, container, id) {
         let div = document.createElement("div");
         let a = document.createElement("a");
+        switch (name) {
+            case "Informations générales":
+                a.href = "./index.php?controller=information&id=" + id;
+                break;
+            case "Builds orders (BO)":
+                a.href = "./index.php?controller=buildOrders&id=" + id;
+                break;
+        }
 
-        a.href = "./index.php?controller=information&id=" + id;
         a.innerHTML = name;
 
         container.appendChild(div);

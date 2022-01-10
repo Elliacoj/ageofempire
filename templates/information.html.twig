@@ -1,0 +1,26 @@
+{% extends "base.html.twig" %}
+
+{% block cssAdditional %}
+    <link rel="stylesheet" href="./build/css/information.css">
+{% endblock %}
+
+{% block jsAdditional %}
+    <script src="./build/js/information.js" defer></script>
+{% endblock %}
+
+{% block title %}Informations{% endblock %}
+
+{% block body %}
+    <div id="informationPage">
+        <div>
+            <img src="./build/images/{{ civilization.flag }}" alt="Drapeau">
+            <h2>{{ civilization.name }} </h2>
+        </div>
+        <div>
+            {% if information != null %}
+                <h3>Description:</h3>
+                <p>{{ information.description|nl2br }}</p>
+            {% endif %}
+        </div>
+    </div>
+{% endblock %}

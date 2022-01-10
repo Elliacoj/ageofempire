@@ -3,6 +3,7 @@
   flex-wrap: nowrap;
   background-color: #232734;
   position: fixed;
+  z-index: 1;
   width: 100%;
   opacity: 0.95;
 
@@ -70,6 +71,7 @@
   position: fixed;
   margin-top: 6.5rem;
   overflow: hidden;
+  z-index: 1;
 
   & > div:last-child {
     width: 100%;

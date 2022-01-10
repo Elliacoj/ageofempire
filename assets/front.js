@@ -1,3 +1,11 @@
 import "./js/front-main";
 import "./scss/globalStyle.scss";
 import "./images/fond.jpg";
+import "./images/flag-french.png";
+import "./images/flag-abbasid.JPG";
+import "./images/flag-anglais.jpg";
+import "./images/flag-chinois.jpg";
+import "./images/flag-delhi.JPG";
+import "./images/flag-mongol.JPG";
+import "./images/flag-rus.png";
+import "./images/flag-romain.JPG";

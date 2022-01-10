@@ -6,6 +6,7 @@ module.exports = (env, argv) => {
     return {
         entry: {
             front: "./assets/front.js",
+            information: "./assets/information.js"
         },
 
         output: {

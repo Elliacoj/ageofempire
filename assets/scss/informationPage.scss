@@ -1,0 +1,42 @@
+#informationPage {
+  background-color: rgba(35, 39, 52, 0.9);
+  width: 80%;
+  margin: 0 auto;
+  position: relative;
+  top: 15%;
+
+  & > div:first-child {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    padding: 2rem;
+
+    & > h2 {
+      font-size: 5rem;
+      display: flex;
+      align-items: center;
+      background: -webkit-linear-gradient(#ffea01, #e1b908, #ffffff);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      position: relative;
+      margin: 0 auto;
+      padding: 2.5rem 0;
+    }
+
+    & > img {
+      width: 200px;
+      position: absolute;
+      left: 2rem;
+      top: 2rem;
+    }
+  }
+
+  & > div:not(div:first-child) {
+    padding: 3rem;
+    color: #fdfdfd;
+
+    & > h3 {
+      margin-bottom: 2rem;
+    }
+  }
+}
