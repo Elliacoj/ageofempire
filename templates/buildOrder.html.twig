@@ -14,9 +14,21 @@
     <div id="informationPage">
         <div>
             <img src="./build/images/{{ civilization.flag }}" alt="Drapeau">
-            <h2>{{ civilization.name }} </h2>
+            <h2> {{ civilization.name }} </h2>
         </div>
         <div>
+            <h3>{{ buildOrders.name }}</h3>
+            <h4>{{ "Age sombre" }}</h4>
+            <p>{{ buildOrders.dark|nl2br }}</p>
+            <h4>{{ "Age féodal" }}</h4>
+            <p>{{ buildOrders.feudal|nl2br }}</p>
+            <h4>{{ "Age des châteaux" }}</h4>
+            <p>{{ buildOrders.castle|nl2br }}</p>
+            <h4>{{ "Age impérial" }}</h4>
+            <p>{{ buildOrders.imperial|nl2br }}</p>
+            <h4>Tuto en vidéo:</h4>
+            <iframe width="560" height="315" src="{{ buildOrders.link }}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            <p class="sourceLink">{{ "Source: " }}{{ buildOrders.source }}</p>
         </div>
     </div>
 {% endblock %}

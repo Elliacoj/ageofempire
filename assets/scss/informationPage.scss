@@ -37,6 +37,31 @@
 
     & > h3 {
       margin-bottom: 2rem;
+      font-size: 2.8rem;
+    }
+
+    & > h4 {
+      font-size: 2.5rem;
+      text-align: center;
+      margin-bottom: 1.5rem;
+      text-decoration-line: underline;
+      background: -webkit-linear-gradient(#0167ff, #08cfe1, #ffffff);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    & > p {
+      margin-bottom: 4rem;
+    }
+
+    & > iframe {
+      margin: 0 auto;
+      display: block;
+    }
+
+    & > .sourceLink {
+      text-align: center;
+      margin-top: 1rem;
     }
   }
 }

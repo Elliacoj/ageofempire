@@ -39,12 +39,18 @@ class Menu {
         let divSite = document.createElement("div");
         let spanForum = document.createElement("span");
         let spanSite = document.createElement("span");
+        let aSite = document.createElement("a");
+        let aForum = document.createElement("a");
 
         spanForum.innerHTML = "Forum";
         spanSite.innerHTML = "Site";
+        aSite.href = "./index.php";
+        aForum.href = "./index.php";
 
-        divSite.appendChild(spanSite)
-        divForum.appendChild(spanForum);
+        aForum.appendChild(spanForum);
+        aSite.appendChild(spanSite);
+        divSite.appendChild(aSite);
+        divForum.appendChild(aForum);
         this.divMiddle.appendChild(divSite);
         this.divMiddle.appendChild(divForum);
     }
@@ -54,8 +60,12 @@ class Menu {
      */
     contentRight() {
         let span = document.createElement("span");
+        let a = document.createElement('a');
+        a.href = "./index.php";
+
         span.innerHTML = "Connexion";
-        this.divRight.appendChild(span);
+        a.appendChild(span);
+        this.divRight.appendChild(a);
     }
 }
 
