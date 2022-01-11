@@ -13,7 +13,7 @@ class DB {
      * Instance the PDO
      */
     public function __construct() {
-        if(file_exists("Amaur\\App\\config\\ConfigLocal")) {
+        if(file_exists("Amaur\\App\\config\\ConfigPro") && ) {
             [$host, $dbName, $username, $password] = (new  ConfigLocal())->getConfig();
         }
         else {
