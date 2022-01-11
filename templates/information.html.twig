@@ -17,10 +17,23 @@
             <h2>{{ civilization.name }} </h2>
         </div>
         <div>
-            {% if information != null %}
-                <h3>Description:</h3>
-                <p>{{ information.description|nl2br }}</p>
-            {% endif %}
+        {% if information != null %}
+            <h3>Description:</h3>
+            <p>{{ information.description|nl2br }}</p>
+        {% endif %}
+            <h3>Points forts:</h3>
+            <ul>
+            {% for element in assets %}
+                <li>{{ element.content }}</li>
+            {% endfor %}
+            </ul>
+            <h3>Points faibles:</h3>
+            <ul>
+                {% for element in weakness %}
+                    <li>{{ element.content }}</li>
+                {% endfor %}
+            </ul>
+
         </div>
     </div>
 {% endblock %}

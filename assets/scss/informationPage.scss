@@ -3,7 +3,8 @@
   width: 80%;
   margin: 0 auto;
   position: relative;
-  top: 15%;
+  top: 10%;
+  border-radius: 10px;
 
   & > div:first-child {
     display: flex;
@@ -48,6 +49,7 @@
       background: -webkit-linear-gradient(#0167ff, #08cfe1, #ffffff);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
+      text-decoration-color: #0167ff;
     }
 
     & > p {
@@ -62,6 +64,13 @@
     & > .sourceLink {
       text-align: center;
       margin-top: 1rem;
+    }
+
+    & > ul {
+      margin: 0 0 4rem 2rem;
+      & > li {
+        margin: 0.5rem 0;
+      }
     }
   }
 }

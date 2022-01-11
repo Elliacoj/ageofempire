@@ -27,7 +27,7 @@ class Menu {
      */
     contentLeft() {
         let span = document.createElement("span");
-        span.innerHTML = "Age of empire 4";
+        span.innerHTML = "Age of Empire IV";
         this.divLeft.appendChild(span);
     }
 
