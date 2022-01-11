@@ -3,6 +3,7 @@
 namespace Amaur\App\entity;
 
 use Amaur\App\config\ConfigLocal;
+use Amaur\App\config\ConfigProd;
 use PDO;
 use PDOException;
 
@@ -13,8 +14,9 @@ class DB {
      * Instance the PDO
      */
     public function __construct() {
-        if(file_exists("Amaur\\App\\config\\ConfigPro") && ) {
-            [$host, $dbName, $username, $password] = (new  ConfigLocal())->getConfig();
+        if($_SERVER['SERVER_NAME'] == "ageofempire-astucefr.elliacoj.be") {
+
+            [$host, $dbName, $username, $password] = (new  ConfigProd())->getConfig();
         }
         else {
             [$host, $dbName, $username, $password] = (new  ConfigLocal())->getConfig();
